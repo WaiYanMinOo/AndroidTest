@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_controller_main"
+    app:startDestination="@id/fragmentBank">
+    <fragment
+        android:id="@+id/fragmentBank"
+        android:name="com.androidtest.wymo.ui.BankListFragment"
+        android:label="bankFragment"
+        tools:layout="@layout/fragment_bank">
+        <action
+            android:id="@+id/action_bank_to_details"
+            app:destination="@id/fragmentDetails"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetails"
+        android:name="com.androidtest.wymo.ui.BankDetailFragment"
+        android:label="detailFragment"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_details_to_bank"
+            app:destination="@id/fragmentBank"/>
+        <argument
+            android:name="@string/key_transfer"
+            app:argType="com.androidtest.wymo.model.Data"
+            app:nullable="false"/>
+    </fragment>
+</navigation>
